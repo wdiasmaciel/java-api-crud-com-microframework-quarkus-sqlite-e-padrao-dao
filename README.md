@@ -116,7 +116,7 @@ Localizado em `src/main/resources/META-INF/microprofile-config.properties`, este
 
 Ele altera a porta padrão e injeta dinamicamente a variável `${DB_PATH}` declarada no arquivo de ambiente `.env`.
 
-```bash
+```json
 # Altera a porta de execução padrão de 8080 para 8082
 quarkus.http.port=8082
 
