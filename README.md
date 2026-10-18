@@ -25,7 +25,8 @@ Criar uma `API REST` com suporte a operações CRUD (CREATE, READ, UPDATE, DELET
 ```text
 ├── .env
 ├── data/
-├── extensaorestclient.png
+├── SQLiteViewer.png
+├── RESTClient.png
 ├── pom.xml
 ├── README.md
 ├── testes.http
@@ -437,7 +438,7 @@ public class UsuarioResourceController {
 
 Instalar a extensão `SQLite Viewer` do VS Code, para verificar os dados armazenados no arquivo do banco de dados `SQLite`:
 
-![Extensão SQLite Viewer do VS Code](SQLiteViewerForVSCode.png "Extensão REST Client do VS Code")
+![Extensão SQLite Viewer do VS Code](SQLiteViewer.png "Extensão REST Client do VS Code")
 
 
 # Extensão REST Client do VS Code
