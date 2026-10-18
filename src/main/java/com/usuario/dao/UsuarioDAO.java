@@ -53,7 +53,7 @@ public class UsuarioDAO {
     public Usuario buscarPorId(Long id) {
         String sql = "SELECT id, nome, nascimento FROM usuarios WHERE id = ?";
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement pstmt = conn.getConnection().prepareStatement(sql)) {
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setLong(1, id);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
