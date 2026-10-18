@@ -1,0 +1,3 @@
+/workspaces/java-api-crud-com-microframework-quarkus-sqlite-e-padrao-dao/src/main/java/com/usuario/controller/UsuarioResourceController.java
+/workspaces/java-api-crud-com-microframework-quarkus-sqlite-e-padrao-dao/src/main/java/com/usuario/dao/UsuarioDAO.java
+/workspaces/java-api-crud-com-microframework-quarkus-sqlite-e-padrao-dao/src/main/java/com/usuario/model/Usuario.java

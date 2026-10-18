@@ -57,13 +57,13 @@ Crie a pasta `data`, para armazenar o arquivo do banco de dados `SQLite`.
 
 # Arquivo de Configuração de Dependências (pom.xml)
 
-O arquivo `pom.xml` gerencia as dependências do ecossistema `Quarkus` necessárias para expor endpoints `JSON` (`quarkus-rest-jackson`), fornecer o `pool` de conexões `JDBC` corporativo (`quarkus-agroal`) e embarcar o driver nativo do `SQLite` (`quarkus-jdbc-sqlite`).
+O arquivo `pom.xml` gerencia as dependências do ecossistema `Quarkus` necessárias para expor endpoints `JSON` (`quarkus-rest-jackson`), fornecer o `pool` de conexões `JDBC` corporativo (`quarkus-agroal`) e conectar ao `SQLite` pela extensão `quarkus-jdbc-sqlite`, publicada pelo projeto Quarkiverse.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://apache.org"
-         xmlns:xsi="http://w3.org"
-         xsi:schemaLocation="http://apache.org https://apache.org">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     
     <!-- Identificação do seu projeto com o pacote 'usuario' -->
@@ -98,10 +98,11 @@ O arquivo `pom.xml` gerencia as dependências do ecossistema `Quarkus` necessár
             <artifactId>quarkus-rest-jackson</artifactId>
         </dependency>
 
-        <!-- Driver JDBC nativo para suporte a bancos de dados SQLite -->
+        <!-- Extensão Quarkiverse para conectar ao SQLite via JDBC -->
         <dependency>
-            <groupId>io.quarkus</groupId>
+            <groupId>io.quarkiverse.jdbc</groupId>
             <artifactId>quarkus-jdbc-sqlite</artifactId>
+            <version>3.0.11</version>
         </dependency>
 
         <!-- Agroal: Gerenciador e Pool de conexões padrão do Quarkus -->

@@ -1,6 +1,6 @@
-package com.exemplo.dao;
+package com.usuario.dao;
 
-import com.exemplo.model.Usuario;
+import com.usuario.model.Usuario;
 import io.agroal.api.AgroalDataSource;
 import io.quarkus.runtime.Startup;
 import jakarta.enterprise.context.ApplicationScoped;
