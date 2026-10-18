@@ -514,34 +514,39 @@ Execute o comando de build abaixo no terminal:
 ```bash
 ./mvnw quarkus:dev
 ```
-*A infraestrutura do Quarkus detectará o arquivo `.env`, mapeará a string de conexão para a propriedade do MicroProfile Config e inicializará o servidor HTTP embutido na porta **8082**.*
+*A infraestrutura do `Quarkus` detectará o arquivo `.env`, mapeará a string de conexão para a propriedade do MicroProfile Config e inicializará o servidor HTTP embutido na porta **8082**.*
 
 ---
 
-## 🧪 Testando os Ciclos da API (CRUD)
+## Testando os Ciclos da API (CRUD)
 
-Abra uma aba de terminal secundária no Codespaces para realizar chamadas REST de teste via utilitário `curl`:
+Abra uma aba de terminal secundária no `GitHub Codespaces` para realizar chamadas REST de teste via utilitário `curl`:
 
-### 1. Cadastrar um Usuário (CREATE)
+### Cadastrar um Usuário (CREATE)
 ```bash
 curl -X POST http://localhost:8082/usuarios \
   -H "Content-Type: application/json" \
   -d '{"nome": "Ana Silva", "nascimento": "2000-05-15"}'
 ```
 
-### 2. Listar Todos os Usuários (READ)
+### Listar Todos os Usuários (READ)
 ```bash
 curl -X GET http://localhost:8082/usuarios
 ```
 
-### 3. Modificar Dados do Usuário (UPDATE)
+### Listar Usuário por ID (READ)
+```bash
+curl -X GET http://localhost:8082/usuarios/1
+```
+
+### Modificar Dados do Usuário (UPDATE)
 ```bash
 curl -X PUT http://localhost:8082/usuarios/1 \
   -H "Content-Type: application/json" \
   -d '{"nome": "Ana Silva Souza", "nascimento": "2000-05-15"}'
 ```
 
-### 4. Remover Registro do Sistema (DELETE)
+### Remover Registro do Sistema (DELETE)
 ```bash
 curl -X DELETE http://localhost:8082/usuarios/1
 ```
