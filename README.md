@@ -45,15 +45,16 @@ Criar uma `API REST` com suporte a operações CRUD (CREATE, READ, UPDATE, DELET
 
 # Variável de Ambiente
 
-O `Quarkus` lê variáveis de ambiente diretamente de um arquivo contêiner `.env` localizado na raiz do projeto. 
+O `Quarkus` lê variáveis de ambiente diretamente de um arquivo `.env` localizado na raiz do projeto. 
 
-Crie a pasta `data`, para armazenar o arquivo do banco de dados `SQLite`.
-
-Dentro da pasta `data`, crie o arquivo `.env` com o conteúdo abaixo:
+Crie o arquivo `.env` com o conteúdo abaixo na raiz do projeto:
 
 ```´property
 DB_PATH=data/usuarios.db
 ```
+
+Crie a pasta `data`, para armazenar o arquivo do banco de dados `SQLite`.
+
 # Arquivo de Configuração de Dependências (pom.xml)
 
 O arquivo `pom.xml` gerencia as dependências do ecossistema `Quarkus` necessárias para expor endpoints `JSON` (`quarkus-rest-jackson`), fornecer o `pool` de conexões `JDBC` corporativo (`quarkus-agroal`) e embarcar o driver nativo do `SQLite` (`quarkus-jdbc-sqlite`).
