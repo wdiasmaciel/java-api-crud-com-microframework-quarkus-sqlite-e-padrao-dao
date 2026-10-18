@@ -577,12 +577,9 @@ Empregando a linguagem de programação Java, o microframework Quarkus, o banco 
 
 ### 1) Cliente e Produtos
 O sistema deve permitir:
-
-  -- O CRUD de clientes e de produtos.
-
-  b) Listar todos os produtos adquiridos por um certo cliente, cujo `id` é informado como parâmetro.
-
-  c) Listar as categorias de produto adquiridas por mais de `n` clientes, em que `n` é um número informado como parâmetro.
+1. O CRUD de clientes e de produtos.
+2. Listar todos os produtos adquiridos por um certo cliente, cujo `id` é informado como parâmetro.
+3. Listar as categorias de produto adquiridas por mais de `n` clientes, em que `n` é um número informado como parâmetro.
 
 ### 2) Agência de Viagens
 O sistema deve permitir:
