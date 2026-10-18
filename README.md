@@ -26,6 +26,7 @@ Criar uma `API REST` com suporte a operações CRUD (CREATE, READ, UPDATE, DELET
 ├── .env
 ├── testes.http
 ├── pom.xml
+└── data
 └── src
     └── main
         ├── java
@@ -42,7 +43,17 @@ Criar uma `API REST` com suporte a operações CRUD (CREATE, READ, UPDATE, DELET
                 └── microprofile-config.properties
 ```
 
+# Variável de Ambiente
 
+O `Quarkus` lê variáveis de ambiente diretamente de um arquivo contêiner `.env` localizado na raiz do projeto. 
+
+Crie a pasta `data`, para armazenar o arquivo do banco de dados `SQLite`.
+
+Dentro da pasta `data`, crie o arquivo `.env` com o conteúdo abaixo:
+
+```´properties
+DB_PATH=data/usuarios.db
+```
 # Arquivo de Configuração de Dependências (pom.xml)
 
 O arquivo `pom.xml` gerencia as dependências do ecossistema `Quarkus` necessárias para expor endpoints `JSON` (`quarkus-rest-jackson`), fornecer o `pool` de conexões `JDBC` corporativo (`quarkus-agroal`) e embarcar o driver nativo do `SQLite` (`quarkus-jdbc-sqlite`).
@@ -187,7 +198,6 @@ public class Usuario {
     }
 }
 ```
-
 
 # Camada de Persistência (UsuarioDAO.java)
 
@@ -488,18 +498,12 @@ GET {{baseUrl}}/usuarios
 Accept: {{contentType}}
 ```
 
+# Executar no GitHub Codespaces
 
-## 🚀 Como Executar e Configurar no GitHub Codespaces
+O ambiente do `GitHub Codespaces` já oferece suporte nativo ao ecossistema Java (JDK) e ferramentas de build como o Apache Maven. 
 
-O ambiente do GitHub Codespaces já oferece suporte nativo ao ecossistema Java (JDK) e ferramentas de build como o Apache Maven. Siga o roteiro de comandos abaixo diretamente no terminal integrado:
+Siga o roteiro de comandos abaixo diretamente no terminal integrado:
 
-### 1. Provisionar a Estrutura de Pastas e Configurações Ambientais
-O Quarkus lê variáveis de ambiente diretamente de um arquivo contêiner `.env` localizado na raiz do projeto. Primeiro, crie a pasta onde o banco residirá e configure a variável:
-
-```bash
-mkdir -p data
-echo "DB_PATH=data/usuarios.db" > .env
-```
 
 ### 2. Inicializar o Servidor em Modo de Desenvolvimento (Dev Mode)
 O Quarkus se destaca pela funcionalidade de *Live Coding*. Execute o comando de build abaixo no terminal:
