@@ -536,7 +536,7 @@ O comando pressupõe que a porta `8082` esteja livre. Se outra instância já es
 
 ---
 
-## Testando os Ciclos da API (CRUD)
+## Testando a API (CRUD)
 
 Abra uma aba de terminal secundária no `GitHub Codespaces` para realizar chamadas REST de teste via utilitário `curl`:
 
@@ -570,3 +570,18 @@ curl -X PUT http://localhost:8082/usuarios/1 \
 ```bash
 curl -X DELETE http://localhost:8082/usuarios/1
 ```
+
+# Exercícios
+
+Empregando a linguagem de programação Java, o microframework Quarkus, o banco de dados SQLite e Padrão DAO, implemente as seguintes APIs:
+
+### 1) Cliente e Produtos
+O sistema deve permitir:
+1. O CRUD de clientes e produtos.
+2. Listar todos os produtos adquiridos por um certo cliente, cujo `id` é informado como parâmetro.
+
+### 2) Agência de Viagens
+O sistema deve permitir:
+1. O CRUD de clientes e destinos turísticos.
+2. Listar todos os destinos turísticos visitados por um certo cliente, cujo `id` é informado como parâmetro.
+3. Listar todos os clientes que visitaram um certo destino turístico, cujo `id` é informado como parâmetro.
