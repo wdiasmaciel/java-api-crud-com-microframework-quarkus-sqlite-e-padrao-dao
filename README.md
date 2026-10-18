@@ -20,6 +20,7 @@ Criar uma `API REST` com suporte a operações CRUD (CREATE, READ, UPDATE, DELET
 
 ```text
 ├── .env
+├── testes.http
 ├── pom.xml
 └── src
     └── main
@@ -407,4 +408,130 @@ public class UsuarioResourceController {
         return Response.noContent().build(); // Retorna 204 No Content (padrão REST para deleção bem-sucedida).
     }
 }
+```
+
+# Extensão REST Client do VS Code
+
+Criar um arquivo chamado `testes.http` na raiz do projeto.
+
+Colar o código abaixo.
+
+Clicar no link `Send Request` que aparecerá automaticamente em cima de cada método HTTP.
+
+```properties
+### Configurações de Variáveis Locais do REST Client
+@baseUrl = http://localhost:8082
+@contentType = application/json
+
+### 1. Criar Primeiro Usuário (Ana Silva)
+# @name criarAna
+POST {{baseUrl}}/usuarios
+Content-Type: {{contentType}}
+
+{
+    "nome": "Ana Silva",
+    "nascimento": "2000-05-15"
+}
+
+### 2. Criar Segundo Usuário (Carlos Souza)
+POST {{baseUrl}}/usuarios
+Content-Type: {{contentType}}
+
+{
+    "nome": "Carlos Souza",
+    "nascimento": "1995-11-23"
+}
+
+### 3. Tentar Criar Usuário Inválido (Deve retornar Erro 400)
+POST {{baseUrl}}/usuarios
+Content-Type: {{contentType}}
+
+{
+    "nome": "Usuário Sem Data"
+}
+
+### 4. Listar Todos os Usuários
+GET {{baseUrl}}/usuarios
+Accept: {{contentType}}
+
+### 5. Buscar Usuário por ID Específico
+GET {{baseUrl}}/usuarios/1
+Accept: {{contentType}}
+
+### 6. Tentar Buscar Usuário Inexistente (Deve retornar Erro 404)
+GET {{baseUrl}}/usuarios/999
+Accept: {{contentType}}
+
+### 7. Atualizar Dados do Usuário 1
+PUT {{baseUrl}}/usuarios/1
+Content-Type: {{contentType}}
+
+{
+    "nome": "Ana Silva Souza",
+    "nascimento": "2000-05-15"
+}
+
+### 8. Deletar Usuário 2 (Deve retornar Status 204 No Content)
+DELETE {{baseUrl}}/usuarios/2
+
+### 9. Confirmar Deleção Listando Novamente
+GET {{baseUrl}}/usuarios
+Accept: {{contentType}}
+```
+
+#  Documento de Instruções Didáticas para Repositórios (README.md)
+
+markdown
+# Exemplo Prático: API CRUD com Quarkus, SQLite e Padrão DAO
+
+Este projeto foi desenvolvido como material didático voltado para a execução em ambientes virtuais de aprendizado como o **GitHub Codespaces**. O objetivo é demonstrar a construção de uma API REST robusta utilizando o ecossistema corporativo moderno do **Quarkus** sem o acoplamento tradicional com o Spring Boot.
+
+## 🚀 Como Executar e Configurar no GitHub Codespaces
+
+O ambiente do GitHub Codespaces já oferece suporte nativo ao ecossistema Java (JDK) e ferramentas de build como o Apache Maven. Siga o roteiro de comandos abaixo diretamente no terminal integrado:
+
+### 1. Provisionar a Estrutura de Pastas e Configurações Ambientais
+O Quarkus lê variáveis de ambiente diretamente de um arquivo contêiner `.env` localizado na raiz do projeto. Primeiro, crie a pasta onde o banco residirá e configure a variável:
+
+```bash
+mkdir -p data
+echo "DB_PATH=data/usuarios.db" > .env
+```
+
+### 2. Inicializar o Servidor em Modo de Desenvolvimento (Dev Mode)
+O Quarkus se destaca pela funcionalidade de *Live Coding*. Execute o comando de build abaixo no terminal:
+
+```bash
+./mvnw quarkus:dev
+```
+*A infraestrutura do Quarkus detectará o arquivo `.env`, mapeará a string de conexão para a propriedade do MicroProfile Config e inicializará o servidor HTTP embutido na porta **8082**.*
+
+---
+
+## 🧪 Testando os Ciclos da API (CRUD)
+
+Abra uma aba de terminal secundária no Codespaces para realizar chamadas REST de teste via utilitário `curl`:
+
+### 1. Cadastrar um Usuário (CREATE)
+```bash
+curl -X POST http://localhost:8082/usuarios \
+  -H "Content-Type: application/json" \
+  -d '{"nome": "Ana Silva", "nascimento": "2000-05-15"}'
+```
+
+### 2. Listar Todos os Usuários (READ)
+```bash
+curl -X GET http://localhost:8082/usuarios
+```
+
+### 3. Modificar Dados do Usuário (UPDATE)
+```bash
+curl -X PUT http://localhost:8082/usuarios/1 \
+  -H "Content-Type: application/json" \
+  -d '{"nome": "Ana Silva Souza", "nascimento": "2000-05-15"}'
+```
+
+### 4. Remover Registro do Sistema (DELETE)
+```bash
+curl -X DELETE http://localhost:8082/usuarios/1
 ```
