@@ -65,6 +65,8 @@ O arquivo `pom.xml` gerencia as dependências do ecossistema `Quarkus` necessár
          xmlns:xsi="http://w3.org"
          xsi:schemaLocation="http://apache.org https://apache.org">
     <modelVersion>4.0.0</modelVersion>
+    
+    <!-- Identificação do seu projeto com o pacote 'usuario' -->
     <groupId>com.usuario</groupId>
     <artifactId>quarkus-sqlite-dao</artifactId>
     <version>1.0.0-SNAPSHOT</version>
@@ -72,9 +74,11 @@ O arquivo `pom.xml` gerencia as dependências do ecossistema `Quarkus` necessár
     <properties>
         <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Versão estável do ecossistema Quarkus -->
         <quarkus.platform.version>3.15.1</quarkus.platform.version>
     </properties>
 
+    <!-- Gerenciador de Versões (BOM): Resolve o erro de versão ausente nas dependências abaixo -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -88,19 +92,19 @@ O arquivo `pom.xml` gerencia as dependências do ecossistema `Quarkus` necessár
     </dependencyManagement>
 
     <dependencies>
-        <!-- Quarkus REST com Jackson para serialização automática de JSON -->
+        <!-- Quarkus REST com suporte para mapeamento automático de JSON (Jackson) -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-rest-jackson</artifactId>
         </dependency>
 
-        <!-- Driver JDBC do SQLite nativo para o ecossistema Quarkus -->
+        <!-- Driver JDBC nativo para suporte a bancos de dados SQLite -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-jdbc-sqlite</artifactId>
         </dependency>
 
-        <!-- Agroal: Pool de conexões padrão de alto desempenho do Quarkus -->
+        <!-- Agroal: Gerenciador e Pool de conexões padrão do Quarkus -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-agroal</artifactId>
@@ -109,6 +113,7 @@ O arquivo `pom.xml` gerencia as dependências do ecossistema `Quarkus` necessár
 
     <build>
         <plugins>
+            <!-- Plugin oficial necessário para gerenciar o ciclo de vida do Quarkus e Dev Mode -->
             <plugin>
                 <groupId>io.quarkus.platform</groupId>
                 <artifactId>quarkus-maven-plugin</artifactId>
