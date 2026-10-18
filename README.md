@@ -117,16 +117,16 @@ Localizado em `src/main/resources/META-INF/microprofile-config.properties`, este
 Ele altera a porta padrão e injeta dinamicamente a variável `${DB_PATH}` declarada no arquivo de ambiente `.env`.
 
 ```properties
-# Altera a porta de execução padrão de 8080 para 8082
+# Altera a porta de execução padrão de 8080 para 8082:
 quarkus.http.port=8082
 
-# Configuração do Data Source padrão via Agroal e Driver SQLite
+# Configuração do Data Source padrão via Agroal e Driver SQLite:
 quarkus.datasource.db-kind=sqlite
 
-# Injeta de forma nativa a variável de ambiente DB_PATH obtida do arquivo .env
+# Injeta de forma nativa a variável de ambiente DB_PATH obtida do arquivo .env:
 quarkus.datasource.jdbc.url=jdbc:sqlite:${DB_PATH}
 
-# Configurações adicionais para otimização de pool de conexões em aula
+# Configurações adicionais para otimização de pool de conexões:
 quarkus.datasource.jdbc.max-size=5
 quarkus.datasource.jdbc.min-size=1
 ```
