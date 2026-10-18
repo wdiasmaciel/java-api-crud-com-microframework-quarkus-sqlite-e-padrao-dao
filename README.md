@@ -50,7 +50,7 @@ O `Quarkus` lê variáveis de ambiente diretamente de um arquivo `.env` localiza
 Crie o arquivo `.env` com o conteúdo abaixo na raiz do projeto:
 
 ```´property
-DB_PATH=data/usuarios.db
+DB_PATH=./data/usuarios.db
 ```
 
 Crie a pasta `data`, para armazenar o arquivo do banco de dados `SQLite`.
