@@ -1,0 +1,58 @@
+### Configurações de Variáveis Locais do REST Client
+@baseUrl = http://localhost:8082
+@contentType = application/json
+
+### 1. Criar Primeiro Usuário (Ana Silva)
+# @name criarAna
+POST {{baseUrl}}/usuarios
+Content-Type: {{contentType}}
+
+{
+    "nome": "Ana Silva",
+    "nascimento": "2000-05-15"
+}
+
+### 2. Criar Segundo Usuário (Carlos Souza)
+POST {{baseUrl}}/usuarios
+Content-Type: {{contentType}}
+
+{
+    "nome": "Carlos Souza",
+    "nascimento": "1995-11-23"
+}
+
+### 3. Tentar Criar Usuário Inválido (Deve retornar Erro 400)
+POST {{baseUrl}}/usuarios
+Content-Type: {{contentType}}
+
+{
+    "nome": "Usuário Sem Data"
+}
+
+### 4. Listar Todos os Usuários
+GET {{baseUrl}}/usuarios
+Accept: {{contentType}}
+
+### 5. Buscar Usuário por ID Específico
+GET {{baseUrl}}/usuarios/1
+Accept: {{contentType}}
+
+### 6. Tentar Buscar Usuário Inexistente (Deve retornar Erro 404)
+GET {{baseUrl}}/usuarios/999
+Accept: {{contentType}}
+
+### 7. Atualizar Dados do Usuário 1
+PUT {{baseUrl}}/usuarios/1
+Content-Type: {{contentType}}
+
+{
+    "nome": "Ana Silva Souza",
+    "nascimento": "2000-05-15"
+}
+
+### 8. Deletar Usuário 2 (Deve retornar Status 204 No Content)
+DELETE {{baseUrl}}/usuarios/2
+
+### 9. Confirmar Deleção Listando Novamente
+GET {{baseUrl}}/usuarios
+Accept: {{contentType}}
