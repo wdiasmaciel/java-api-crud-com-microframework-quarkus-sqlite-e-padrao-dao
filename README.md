@@ -1,5 +1,9 @@
 # java-api-crud-com-microframework-quarkus-sqlite-e-padrao-dao
 
+# Exemplo Prático: API CRUD com Quarkus, SQLite e Padrão DAO
+
+Objetivo: demonstrar a construção de uma API REST, utilizando o ecossistema **Quarkus**.
+
 Criar uma `API REST` com suporte a operações CRUD (CREATE, READ, UPDATE, DELETE), utilizando:
 
 1. O microframework `Quarkus`, 
@@ -412,7 +416,7 @@ public class UsuarioResourceController {
 
 # Extensão REST Client do VS Code
 
-Instalar a extensão `REST Client` do VS Code.
+Instalar a extensão `REST Client` do VS Code:
 
 ![Extensão REST Client do VS Code](extensaorestclient.png "Extensão REST Client do VS Code")
 
@@ -484,12 +488,6 @@ GET {{baseUrl}}/usuarios
 Accept: {{contentType}}
 ```
 
-#  Documento de Instruções Didáticas para Repositórios (README.md)
-
-markdown
-# Exemplo Prático: API CRUD com Quarkus, SQLite e Padrão DAO
-
-Este projeto foi desenvolvido como material didático voltado para a execução em ambientes virtuais de aprendizado como o **GitHub Codespaces**. O objetivo é demonstrar a construção de uma API REST robusta utilizando o ecossistema corporativo moderno do **Quarkus** sem o acoplamento tradicional com o Spring Boot.
 
 ## 🚀 Como Executar e Configurar no GitHub Codespaces
 
