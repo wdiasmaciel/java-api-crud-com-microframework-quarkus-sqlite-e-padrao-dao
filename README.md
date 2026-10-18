@@ -65,7 +65,7 @@ O arquivo `pom.xml` gerencia as dependências do ecossistema `Quarkus` necessár
          xmlns:xsi="http://w3.org"
          xsi:schemaLocation="http://apache.org https://apache.org">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.exemplo</groupId>
+    <groupId>com.usuario</groupId>
     <artifactId>quarkus-sqlite-dao</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
