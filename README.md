@@ -306,3 +306,35 @@ public class UsuarioDAO {
     }
 }
 ```
+
+# CDI
+
+O acrônimo `CDI` no contexto de desenvolvimento Java significa `Contexts and Dependency Injection` (Contextos e Injeção de Dependências).
+
+Ele é a especificação oficial do ecossistema `Jakarta EE` (antigo `Java EE`) e `MicroProfile` para gerenciar o ciclo de vida dos componentes e a fiação de dependências na aplicação.
+
+Para quem está acostumado com o framework `Spring Boot`, o `CDI` desempenha exatamente o mesmo papel do `Spring IoC` (`Inversion of Control`). 
+
+Ele resolve dois problemas centrais:
+
+1. Injeção de Dependências (Dependency Injection)
+
+Em vez de você instanciar manualmente as classes usando o operador `new` (o que acopla o código), o framework cria e gerencia os objetos para você.
+
+• No Spring: você usa `@Autowired` ou Injeção via método Construtor.
+
+• No CDI (Quarkus): você usa a anotação `@Inject` (que pertence ao padrão oficial do Java, `jakarta.inject.Inject`).
+
+2. Gerenciamento de Contextos (Contexts / Scopes)
+
+O `CDI` define por quanto tempo um objeto deve "viver" na memória do servidor. 
+
+Os escopos mais comuns que substituem as anotações do Spring são:
+
+• `@ApplicationScoped`: o componente tem uma única instância para toda a aplicação (equivalente ao `@Component` ou `@Service` padrão do Spring, que são o padrão de projeto `GoF` `Singletons`). É o que foi usado no `UsuarioDAO`.
+
+• `@RequestScoped`: uma nova instância do componente é criada a cada requisição HTTP e destruída logo após a resposta ser enviada (equivalente ao `@Scope("request")` do Spring).
+
+• `@SessionScoped`: a instância dura enquanto a sessão HTTP do usuário estiver ativa.
+
+Em resumo: o `CDI` é o motor que permite que anotações como `@Inject` e `@ApplicationScoped` funcionem no `Quarkus` sem que você precise carregar bibliotecas do Spring Boot.
