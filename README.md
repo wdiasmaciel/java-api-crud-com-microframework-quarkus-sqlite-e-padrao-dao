@@ -433,6 +433,13 @@ public class UsuarioResourceController {
 }
 ```
 
+# Extensão SQLite Viewer do VS Code
+
+Instalar a extensão `SQLite Viewer` do VS Code, para verificar os dados armazenados no arquivo do banco de dados `SQLite`:
+
+![Extensão SQLite Viewer do VS Code](RESTClient.png "Extensão REST Client do VS Code")
+
+
 # Extensão REST Client do VS Code
 
 Instalar a extensão `REST Client` do VS Code:
