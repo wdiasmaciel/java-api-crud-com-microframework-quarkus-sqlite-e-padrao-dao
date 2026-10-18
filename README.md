@@ -31,18 +31,18 @@ Criar uma `API REST` com suporte a operações CRUD (CREATE, READ, UPDATE, DELET
 ├── README.md
 ├── testes.http
 └── src/
-    └── main
-        ├── java
-        │   └── com
-        │       └── usuario
-        │           ├── model
+    └── main/
+        ├── java/
+        │   └── com/
+        │       └── usuario/
+        │           ├── model/
         │           │   └── Usuario.java
-        │           ├── dao
+        │           ├── dao/
         │           │   └── UsuarioDAO.java
-        │           └── controller
+        │           └── controller/
         │               └── UsuarioResourceController.java
-        └── resources
-            └── META-INF
+        └── resources/
+            └── META-INF/
                 └── microprofile-config.properties
 ```
 
