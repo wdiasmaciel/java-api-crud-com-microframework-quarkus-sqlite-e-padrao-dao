@@ -412,6 +412,8 @@ public class UsuarioResourceController {
 
 # Extensão REST Client do VS Code
 
+Instalar a extensão REST Client do VS Code.
+
 Criar um arquivo chamado `testes.http` na raiz do projeto.
 
 Colar o código abaixo.
