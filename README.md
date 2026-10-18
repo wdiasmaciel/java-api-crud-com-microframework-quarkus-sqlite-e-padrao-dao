@@ -51,7 +51,7 @@ Crie a pasta `data`, para armazenar o arquivo do banco de dados `SQLite`.
 
 Dentro da pasta `data`, crie o arquivo `.env` com o conteúdo abaixo:
 
-```´properties
+```´property
 DB_PATH=data/usuarios.db
 ```
 # Arquivo de Configuração de Dependências (pom.xml)
