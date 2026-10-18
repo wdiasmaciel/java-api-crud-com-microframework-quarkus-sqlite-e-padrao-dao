@@ -586,5 +586,5 @@ O sistema deve permitir:
 1. O CRUD de clientes e destinos turísticos.
 2. Listar todos os destinos turísticos visitados por um certo cliente, cujo `id` é informado como parâmetro.
 3. Listar todos os clientes que visitaram um certo destino turístico, cujo `id` é informado como parâmetro.
-4) Listar os destinos turísticos agrupados e ordenados por país.
-5) Listar todos os países com mais de `n` destinos turísticos, em que `n` é um número informado como parâmetro.
+4. Listar os destinos turísticos agrupados e ordenados por país.
+5. Listar todos os países com mais de `n` destinos turísticos, em que `n` é um número informado como parâmetro.
