@@ -34,20 +34,20 @@ GET {{baseUrl}}/usuarios
 Accept: {{contentType}}
 
 ### 5. Buscar Usuário por ID Específico
-GET {{baseUrl}}/usuarios/1
+GET {{baseUrl}}/usuarios/2
 Accept: {{contentType}}
 
 ### 6. Tentar Buscar Usuário Inexistente (Deve retornar Erro 404)
 GET {{baseUrl}}/usuarios/999
 Accept: {{contentType}}
 
-### 7. Atualizar Dados do Usuário 1
-PUT {{baseUrl}}/usuarios/1
+### 7. Atualizar Dados do Usuário 2
+PUT {{baseUrl}}/usuarios/2
 Content-Type: {{contentType}}
 
 {
-    "nome": "Ana Silva Souza",
-    "nascimento": "2000-05-15"
+    "nome": "Carlos Souza Lima",
+    "nascimento": "1995-11-23"
 }
 
 ### 8. Deletar Usuário 2 (Deve retornar Status 204 No Content)
