@@ -512,7 +512,7 @@ O `Quarkus` se destaca pela funcionalidade de *Live Coding*.
 Execute o comando de build abaixo no terminal:
 
 ```bash
-./mvnw quarkus:dev
+mvn quarkus:dev
 ```
 *A infraestrutura do `Quarkus` detectará o arquivo `.env`, mapeará a string de conexão para a propriedade do MicroProfile Config e inicializará o servidor HTTP embutido na porta **8082**.*
 
