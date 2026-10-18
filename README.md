@@ -505,9 +505,11 @@ O ambiente do `GitHub Codespaces` já oferece suporte nativo ao ecossistema Java
 
 Siga o roteiro de comandos abaixo diretamente no terminal integrado:
 
+### Iniciar o servidor em Modo de Desenvolvimento (Dev Mode)
 
-### 2. Inicializar o Servidor em Modo de Desenvolvimento (Dev Mode)
-O Quarkus se destaca pela funcionalidade de *Live Coding*. Execute o comando de build abaixo no terminal:
+O `Quarkus` se destaca pela funcionalidade de *Live Coding*. 
+
+Execute o comando de build abaixo no terminal:
 
 ```bash
 ./mvnw quarkus:dev
