@@ -25,13 +25,13 @@ Criar uma `API REST` com suporte a operações CRUD (CREATE, READ, UPDATE, DELET
     └── main
         ├── java
         │   └── com
-        │       └── exemplo
+        │       └── usuario
         │           ├── model
         │           │   └── Usuario.java
         │           ├── dao
         │           │   └── UsuarioDAO.java
-        │           └── resource
-        │               └── UsuarioResource.java
+        │           └── controller
+        │               └── UsuarioResourceController.java
         └── resources
             └── META-INF
                 └── microprofile-config.properties
@@ -129,4 +129,56 @@ quarkus.datasource.jdbc.url=jdbc:sqlite:${DB_PATH}
 # Configurações adicionais para otimização de pool de conexões:
 quarkus.datasource.jdbc.max-size=5
 quarkus.datasource.jdbc.min-size=1
+```
+
+# Modelo de Domínio (Usuario.java)
+
+O modelo Usario.java representa a entidade de negócio de forma pura (Plain Old Java Object, POJO), contendo os campos exigidos para cada usuário.
+
+```java
+package com.usuario.model;
+
+import java.time.LocalDate;
+
+public class Usuario {
+    private Long id;
+    private String nome;
+    private LocalDate nascimento; 
+
+    // Construtor padrão (obrigatório para serialização/deserialização do Jackson JSON)
+    public Usuario() {
+    }
+
+    // Construtor com todos os argumentos:
+    public Usuario(Long id, String nome, LocalDate nascimento) {
+        this.id = id;
+        this.nome = nome;
+        this.nascimento = nascimento;
+    }
+
+    // Getters e Setters:
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public LocalDate getNascimento() {
+        return nascimento;
+    }
+
+    public void setNascimento(LocalDate nascimento) {
+        this.nascimento = nascimento;
+    }
+}
 ```
