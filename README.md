@@ -24,10 +24,12 @@ Criar uma `API REST` com suporte a operações CRUD (CREATE, READ, UPDATE, DELET
 
 ```text
 ├── .env
-├── testes.http
+├── data/
+├── extensaorestclient.png
 ├── pom.xml
-└── data
-└── src
+├── README.md
+├── testes.http
+└── src/
     └── main
         ├── java
         │   └── com
@@ -49,7 +51,7 @@ O `Quarkus` lê variáveis de ambiente diretamente de um arquivo `.env` localiza
 
 Crie o arquivo `.env` com o conteúdo abaixo na raiz do projeto:
 
-```´property
+```properties
 DB_PATH=./data/usuarios.db
 ```
 
@@ -156,7 +158,7 @@ quarkus.datasource.jdbc.min-size=1
 
 # Modelo de Domínio (Usuario.java)
 
-O modelo Usario.java representa a entidade de negócio de forma pura (Plain Old Java Object, POJO), contendo os campos exigidos para cada usuário.
+O modelo `Usuario.java` representa a entidade de negócio como um Plain Old Java Object (POJO), contendo os campos exigidos para cada usuário.
 
 ```java
 package com.usuario.model;
@@ -213,9 +215,9 @@ Gerencia o ciclo de vida dos dados injetando a classe nativa do `pool` do `Agroa
 Além das operações CRUD tradicionais, foi incluído um iniciador dinâmico (`createTable()`) com a anotação `@Startup` para criar a tabela de banco automaticamente caso ela não exista no banco de dados `SQLite` mapeado no arquivo de ambiente `.env`.
 
 ```java
-package com.exemplo.dao;
+package com.usuario.dao;
 
-import com.exemplo.model.Usuario;
+import com.usuario.model.Usuario;
 import io.agroal.api.AgroalDataSource;
 import io.quarkus.runtime.Startup;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -235,7 +237,7 @@ public class UsuarioDAO {
     public void createTable() {
         String sql = """
                   CREATE TABLE IF NOT EXISTS usuarios (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
                     nome TEXT NOT NULL, 
                     nascimento TEXT NOT NULL);
                 """; // SQLite armazena datas de forma otimizada como TEXT ISO-8601.
@@ -268,7 +270,7 @@ public class UsuarioDAO {
     public Usuario buscarPorId(Long id) {
         String sql = "SELECT id, nome, nascimento FROM usuarios WHERE id = ?";
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement pstmt = conn.getConnection().prepareStatement(sql)) {
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setLong(1, id);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
@@ -513,20 +515,24 @@ Siga o roteiro de comandos abaixo diretamente no terminal integrado:
 
 ### Iniciar o servidor em Modo de Desenvolvimento (Dev Mode)
 
-O `Quarkus` se destaca pela funcionalidade de *Live Coding*. 
+O `Quarkus` se destaca pela funcionalidade de *Live Coding*.
 
-Execute o comando de build abaixo no terminal:
+Execute o comando abaixo na raiz do projeto. A propriedade desabilita o build analytics do Quarkus para este comando; ela é uma opção do Maven, não uma configuração de runtime do `microprofile-config.properties`:
 
 ```bash
-mvn quarkus:dev
+mvn -Dquarkus.analytics.disabled=true quarkus:dev
 ```
 *A infraestrutura do `Quarkus` detectará o arquivo `.env`, mapeará a string de conexão para a propriedade do MicroProfile Config e inicializará o servidor HTTP embutido na porta **8082**.*
+
+O comando pressupõe que a porta `8082` esteja livre. Se outra instância já estiver usando essa porta, encerre-a antes de iniciar o servidor.
 
 ---
 
 ## Testando os Ciclos da API (CRUD)
 
 Abra uma aba de terminal secundária no `GitHub Codespaces` para realizar chamadas REST de teste via utilitário `curl`:
+
+Os exemplos abaixo usam os IDs `1` e `2` e pressupõem um banco novo. Ao repetir os testes, use os IDs retornados pelas requisições `POST` ou pare o servidor e remova `data/usuarios.db` para recriar o banco. A remoção apaga todos os registros desse banco.
 
 ### Cadastrar um Usuário (CREATE)
 ```bash

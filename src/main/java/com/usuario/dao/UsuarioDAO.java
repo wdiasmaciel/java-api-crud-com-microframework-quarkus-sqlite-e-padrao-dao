@@ -20,7 +20,7 @@ public class UsuarioDAO {
     public void createTable() {
         String sql = """
                   CREATE TABLE IF NOT EXISTS usuarios (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
                     nome TEXT NOT NULL, 
                     nascimento TEXT NOT NULL);
                 """; // SQLite armazena datas de forma otimizada como TEXT ISO-8601.

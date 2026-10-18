@@ -36,7 +36,7 @@
             <artifactId>quarkus-rest-jackson</artifactId>
         </dependency>
 
-        <!-- Driver JDBC nativo para suporte a bancos de dados SQLite -->
+        <!-- Extensão Quarkiverse para conectar ao SQLite via JDBC -->
         <dependency>
             <groupId>io.quarkiverse.jdbc</groupId>
             <artifactId>quarkus-jdbc-sqlite</artifactId>
